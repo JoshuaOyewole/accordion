@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import questionDB from './data'
+import Question from './Question';
+import { AiFillTwitterCircle,AiFillFacebook,AiOutlineTwitter} from 'react-icons/ai';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <div className='container'>
+        <h3>Frequently Asked Question <br /> <AiFillTwitterCircle /> <AiFillFacebook /> <AiOutlineTwitter /></h3>
+        
+        <section className='info'>
+            {
+              questionDB.map(question =>{
+                return <Question {...question} key={question.id} />
+              })
+            }   
+        </section>
+      </div>
+    </main>
   );
 }
 
